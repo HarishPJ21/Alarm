@@ -1,22 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alarm</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
     <div class="main">
-        <div id="time">
-            asdf
+      <div id="time">asdf</div>
+      <div id="alarm">
+        <span></span>
+        <button type="buttom" id="turnoff_alarm" onclick=" ">
+          Dismiss Alarm
+        </button>
+        <audio
+          id="alarm_audio"
+          loop
+          muted
+          autoplay
+          src="sounds/alarm.mp3"
+        ></audio>
+
+          <!-- <input type="number" id="hours" placeholder="00" min="0" max="23"/> -->
+          <!-- <input type="number" id="minutes" placeholder="00" min="0" max="59"/> -->
+          <!-- <input type="number" /> -->
         </div>
-        <div id="alarm">
-            <span></span>
-            <audio id="alarm_audio" loop muted autoplay src="sounds/alarm.mp3"></audio>
+        <div class="inputs">
+            <div class="dd">
+              <select>
+                <option value="00" selected hidden>Hour</option>
+                <option value="01" >01</option>
+                <option value="02" >02</option>
+                <option value="03" >03</option>
+                <option value="04" >04</option>
+                <option value="05" >05</option>
+              </select>
+            </div>
+            <div class="dd">
+              <select >
+                <option value="00" selected hidden>Minutes</option>
+                <option value="01" >01</option>
+                <option value="02" >02</option>
+                <option value="03" >03</option>
+                <option value="04" >04</option>
+                <option value="05" >05</option>
+              </select>
+            </div>
+            <div class="dd">
+              <select >
+                <option value="00" selected hidden>AM/PM</option>
+                <option value="01" >01</option>
+                <option value="02" >02</option>
+                <option value="03" >03</option>
+                <option value="04" >04</option>
+                <option value="05" >05</option>
+              </select>
+            </div>
+            <div class="setAlarm">
+              <button >Set Alarm</button>
+            
+          </div>
         </div>
     </div>
     <script src="js/alarm.js"></script>
-</body>
+  </body>
 </html>

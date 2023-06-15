@@ -23,3 +23,27 @@ body{
         font-size: 100px;
     }
 }
+
+.inputs{
+    display: flex;
+    justify-content: space-between;
+}
+.inputs .dd, .setAlarm{
+    border-radius: 5px;
+    margin: 0 10px;
+    border: 1px solid #998;
+    width: calc(100%/3-5px);
+}
+
+.dd select{
+    outline: none;
+    border: none;
+    font-size: 19px;
+    height: 30px;
+    width: 100%;
+}
+
+.inputs .setAlarm button{
+    background-color: rgb(202, 235, 17);
+    height: 30px;
+}
