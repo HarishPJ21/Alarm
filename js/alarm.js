@@ -38,4 +38,23 @@ class Clock{
     }
 }
 
+SelectDD = document.querySelectorAll('select');
+
+for(let i=12;i>0;i--){
+    i = i<10 ? `0${i}`:i;
+    let option = `<option value="${i}" >${i}</option>`;
+    SelectDD[0].firstElementChild.insertAdjacentHTML("afterend",option);
+}
+for(let i=59;i>=0;i--){
+    i = i<10 ? `0${i}`:i;
+    let option = `<option value="${i}" >${i}</option>`;
+    SelectDD[1].firstElementChild.insertAdjacentHTML("afterend",option);
+}
+for(let i=2;i>0;i--){
+    const amp = i==2 ? "PM":"AM";
+    let option = `<option value="${amp}" >${amp}</option>`;
+    SelectDD[2].firstElementChild.insertAdjacentHTML("afterend",option);
+}
+
 new Clock('#time','#alarm','07:52:30 PM')
+
