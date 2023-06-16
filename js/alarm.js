@@ -1,20 +1,40 @@
+SelectDD = document.querySelectorAll('select');
 class Clock{
     constructor(timeDiv, alarmDiv, alarmTime){
         this.timeDiv=timeDiv;
         this.alarmDiv=alarmDiv;
-        this.alarmTime= alarmTime;
+        this.alarmTime= alarmTime;        
+        this.alarmArray=[]
         this.alarmAudio= document.querySelector(this.alarmDiv+' #alarm_audio')// selecting alarm audio inside the ID alarm 
-        this.addAlarm=document.querySelector(this.alarmDiv+ ' .addAlarm').addEventListener("click",()=>{
+        this.allAlarm = document.querySelector('.allAlarms');
+        this.addAlarm=document.querySelector('.setAlarm').addEventListener("click",()=>{
             let alarmObj={};
-            alarmObj.hour=hour;
-            alarmObj.minute=minute;
-            alarmObj.index=alarmArray.length;
-            alarmArray.push(alarmObj);
-            createAlarm(alarmObj);            
+            alarmObj.time=`${SelectDD[0].value}:${SelectDD[1].value} ${SelectDD[2].value}`;
+            alarmObj.index=this.alarmArray.length-1;
+            this.alarmArray.push(alarmObj);
+            createAlarm(this.alarmArray);            
         })
-        const createAlarm=(alarmObj)=>{
-            allAlarm = document.querySelectorAll('.allAlarms');
-
+        this.deleteAlarm=document.querySelector('.deleteAlarm').addEventListener("click",(e)=>{
+            const searchID=e.target.parentElement.getAttribute("data-id")
+            console.log(searchID);
+            const i = this.allAlarm.find(searchID);
+            if(i){
+                e.target.parentElement.remove();
+                this.allAlarm.splice(i,1);
+            }
+        })
+        const createAlarm=(alarmArray)=>{
+            
+            console.log(alarmArray.length)
+            for(let i=0;i<alarmArray.length;i++){
+                let alarmObj=alarmArray[i];
+                let alarmRow=
+                `<div class="alarmRow" data-id="${alarmObj.index}"> 
+                <span class="arleft">${alarmObj.time}</span>
+                <button class="deleteAlarm"><i class="fa fa-trash" aria-hidden="true"></i></button>             
+                </div>`;
+                this.allAlarm.firstElementChild.insertAdjacentHTML("afterend",alarmRow);
+            }
         }
 
         let tim = document.querySelector(this.timeDiv);
@@ -50,7 +70,6 @@ class Clock{
     }
 }
 
-SelectDD = document.querySelectorAll('select');
 
 for(let i=12;i>0;i--){
     i = i<10 ? `0${i}`:i;

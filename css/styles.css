@@ -67,11 +67,12 @@ body{
     .arleft{
         color: aquamarine;;
     }
-    .arright{
+    .deleteAlarm{
         color: rgb(147, 70, 219);
-        background-color: transparent;  
-        border: none;
+        background-color: transparent;
         cursor: pointer;
+        border: none;
+        
     }
 
 }
