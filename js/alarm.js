@@ -10,33 +10,54 @@ class Clock{
         this.addAlarm=document.querySelector('.setAlarm').addEventListener("click",()=>{
             let alarmObj={};
             alarmObj.time=`${SelectDD[0].value}:${SelectDD[1].value} ${SelectDD[2].value}`;
-            alarmObj.index=this.alarmArray.length-1;
+            alarmObj.index=this.alarmArray.length;
             this.alarmArray.push(alarmObj);
-            createAlarm(this.alarmArray);            
+            createAlarm(alarmObj);            
         })
-        this.deleteAlarm=document.querySelector('.deleteAlarm').addEventListener("click",(e)=>{
-            const searchID=e.target.parentElement.getAttribute("data-id")
-            console.log(searchID);
-            const i = this.allAlarm.find(searchID);
-            if(i){
-                e.target.parentElement.remove();
-                this.allAlarm.splice(i,1);
-            }
-        })
-        const createAlarm=(alarmArray)=>{
+        const deleteAlarm=(e)=>{
+            const searchID=e.target.parentElement.parentElement.getAttribute("data-id")
             
-            console.log(alarmArray.length)
-            for(let i=0;i<alarmArray.length;i++){
-                let alarmObj=alarmArray[i];
-                let alarmRow=
-                `<div class="alarmRow" data-id="${alarmObj.index}"> 
-                <span class="arleft">${alarmObj.time}</span>
-                <button class="deleteAlarm"><i class="fa fa-trash" aria-hidden="true"></i></button>             
-                </div>`;
-                this.allAlarm.firstElementChild.insertAdjacentHTML("afterend",alarmRow);
+            const i = search(this.alarmArray,searchID);
+            // console.log(i);
+            
+            if(i!=-1){
+                e.target.parentElement.parentElement.remove();
+                this.alarmArray.splice(i,1);
+                console.log(this.alarmArray);
             }
-        }
 
+        }
+        const search=(alarmArray,searchID)=>{
+
+            for(let j=0;j<alarmArray.length;j++){
+                if(searchID == alarmArray[j].index) return j;
+            }
+            return -1;
+            }
+    const createAlarm=(alarmObj)=>{
+            
+            // console.log(alarmArray.length)
+            // for(let i=0;i<alarmArray.length;i++){
+                // let alarmObj=alarmArray[i];
+                let alarmRow = document.createElement("div");
+                alarmRow.classList.add("alarmRow");
+                alarmRow.setAttribute("data-id", alarmObj.index);
+                alarmRow.innerHTML = `<span class="arleft">${alarmObj.time}</span>`;
+                console.log(alarmRow);
+              
+                // let alarmRow=
+                // `<div class="alarmRow" data-id="${}"> 
+                // <span class="arleft">${}</span>
+                // </div>`;
+                // <button class="deleteAlarm"><i class="fa fa-trash" aria-hidden="true"></i></button>             
+                let deleteButton = document.createElement("button");
+                deleteButton.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
+                deleteButton.classList.add("deleteAlarm");
+                deleteButton.addEventListener("click", (e) => deleteAlarm(e));
+                alarmRow.appendChild(deleteButton);
+                this.allAlarm.appendChild(alarmRow);
+            // }
+            }
         let tim = document.querySelector(this.timeDiv);
         let t= new Date();
         let time=t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'})
