@@ -23,7 +23,10 @@ body{
         font-size: 100px;
     }
 }
-
+    
+.vmargin{
+    margin: .5rem 0;
+}
 .inputs{
     display: flex;
     justify-content: space-between;
@@ -46,4 +49,29 @@ body{
 .inputs .setAlarm button{
     background-color: rgb(202, 235, 17);
     height: 30px;
+}
+
+.allAlarms{
+    width: 30%;
+    max-height: 50%;
+    /* background-color: bisque; */
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.alarmRow{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1.5rem;
+    margin: 1rem 0;
+    .arleft{
+        color: aquamarine;;
+    }
+    .arright{
+        color: rgb(147, 70, 219);
+        background-color: transparent;  
+        border: none;
+        cursor: pointer;
+    }
+
 }

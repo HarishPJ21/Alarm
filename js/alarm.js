@@ -4,6 +4,18 @@ class Clock{
         this.alarmDiv=alarmDiv;
         this.alarmTime= alarmTime;
         this.alarmAudio= document.querySelector(this.alarmDiv+' #alarm_audio')// selecting alarm audio inside the ID alarm 
+        this.addAlarm=document.querySelector(this.alarmDiv+ ' .addAlarm').addEventListener("click",()=>{
+            let alarmObj={};
+            alarmObj.hour=hour;
+            alarmObj.minute=minute;
+            alarmObj.index=alarmArray.length;
+            alarmArray.push(alarmObj);
+            createAlarm(alarmObj);            
+        })
+        const createAlarm=(alarmObj)=>{
+            allAlarm = document.querySelectorAll('.allAlarms');
+
+        }
 
         let tim = document.querySelector(this.timeDiv);
         let t= new Date();

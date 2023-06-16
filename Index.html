@@ -9,8 +9,8 @@
   </head>
   <body>
     <div class="main">
-      <div id="time">asdf</div>
-      <div id="alarm">
+      <div id="time" class="vmargin">asdf</div>
+      <div id="alarm" class="vmargin">
         <span></span>
         <button type="buttom" id="turnoff_alarm" onclick=" ">
           Dismiss Alarm
@@ -27,7 +27,7 @@
           <!-- <input type="number" id="minutes" placeholder="00" min="0" max="59"/> -->
           <!-- <input type="number" /> -->
         </div>
-        <div class="inputs">
+        <div class="inputs vmargin" >
             <div class="dd">
               <select>
                 <option value="00" selected hidden>Hour</option>
@@ -44,11 +44,29 @@
               </select>
             </div>
             <div class="setAlarm">
-              <button >Set Alarm</button>
-            
+              <button >Add Alarm</button>
+          </div>         
+        </div>
+        <div class="allAlarms vmargin" >
+          <div class="alarmRow" data-id=""> 
+            <span class="arleft">time</span>
+            <button class="arright"><i class="fa fa-trash" aria-hidden="true"></i>
+            </button>             
           </div>
+          <div class="alarmRow" data-id=""> 
+            <span class="arleft">time</span>
+            <button class="arright"><i class="fa fa-trash" aria-hidden="true"></i>
+            </button>             
+          </div>
+          <div class="alarmRow" data-id=""> 
+            <span class="arleft">time</span>
+            <button class="arright"><i class="fa fa-trash" aria-hidden="true"></i>
+            </button>             
+          </div>
+
         </div>
     </div>
     <script src="js/alarm.js"></script>
+    <script src="https://kit.fontawesome.com/b294fa3d3e.js" crossorigin="anonymous"></script>
   </body>
 </html>
