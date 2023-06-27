@@ -9,24 +9,12 @@
   </head>
   <body>
     <div class="main">
-      <div id="time" class="vmargin">asdf</div>
-      <div id="alarm" class="vmargin">
-        <span></span>
-        <button type="buttom" id="turnoff_alarm" onclick=" ">
-          Dismiss Alarm
-        </button>
-        <audio
-          id="alarm_audio"
-          loop
-          muted
-          autoplay
-          src="sounds/alarm.mp3"
-        ></audio>
 
-          <!-- <input type="number" id="hours" placeholder="00" min="0" max="23"/> -->
-          <!-- <input type="number" id="minutes" placeholder="00" min="0" max="59"/> -->
-          <!-- <input type="number" /> -->
-        </div>
+      <!-- time will be displayed in this div -->
+      <div id="time" class="vmargin"></div>
+
+      <!-- input will be taken in the below div -->
+
         <div class="inputs vmargin" >
             <div class="dd">
               <select>
@@ -47,23 +35,10 @@
               <button >Set Alarm</button>
           </div>         
         </div>
-        <div class="allAlarms vmargin" >
-          <!-- <div class="alarmRow" data-id=""> 
-            <span class="arleft">time</span>
-            <button class="deleteAlarm"><i class="fa fa-trash" aria-hidden="true"></i>
-            </button>             
-          </div>
-          <div class="alarmRow" data-id=""> 
-            <span class="arleft">time</span>
-            <button class="deleteAlarm"><i class="fa fa-trash" aria-hidden="true"></i>
-            </button>             
-          </div>
-          <div class="alarmRow" data-id=""> 
-            <span class="arleft">time</span>
-            <button class="deleteAlarm"><i class="fa fa-trash" aria-hidden="true"></i>
-            </button>             
-          </div> -->
 
+        <!-- alarms will be displayed in the below div -->
+        <div class="AlarmsHeading vmargin">ALARMS</div>
+        <div class="allAlarms vmargin" >
         </div>
     </div>
     <script src="js/alarm.js"></script>

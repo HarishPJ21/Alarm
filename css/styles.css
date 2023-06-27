@@ -35,7 +35,6 @@ body{
     border-radius: 5px;
     margin: 0 10px;
     border: 1px solid #998;
-    width: calc(100%/3-5px);
 }
 
 .dd select{
@@ -50,17 +49,25 @@ body{
     background-color: rgb(202, 235, 17);
     height: 30px;
 }
-
+::-webkit-scrollbar {
+    width: 0px;
+  }
+  
 .allAlarms{
     width: 30%;
     max-height: 50%;
-    /* background-color: bisque; */
+    overflow: scroll;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
+.AlarmsHeading{
+    color: rgb(255, 81, 0);
+    font-size: 2rem;
+}
 .alarmRow{
     display: flex;
+    font-size: 2rem;
     justify-content: space-between;
     padding: 0 1.5rem;
     margin: 1rem 0;
