@@ -7,6 +7,10 @@ class Clock{
         this.allAlarm = document.querySelector('.allAlarms');//selecting allAlarms class as a veriable
         this.addAlarm=document.querySelector('.setAlarm').addEventListener("click",()=>{
             let alarmObj={};
+            if(SelectDD[0].value=="00" || SelectDD[2].value=="00"){
+            alert("kindly select a valid data")    
+            return;
+        }
             alarmObj.time=`${SelectDD[0].value}:${SelectDD[1].value}:${"00"} ${SelectDD[2].value}`;
             alarmObj.index=this.alarmArray.length;
             this.alarmArray.push(alarmObj);

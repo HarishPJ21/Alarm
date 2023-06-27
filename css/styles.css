@@ -19,7 +19,6 @@ body{
     flex-direction: column;
     #time{
         color: aquamarine;
-        text-shadow: 3px 3px 0px gainsboro;
         font-size: 100px;
     }
 }
