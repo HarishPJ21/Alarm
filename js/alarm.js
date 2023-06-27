@@ -9,7 +9,7 @@ class Clock{
         this.allAlarm = document.querySelector('.allAlarms');
         this.addAlarm=document.querySelector('.setAlarm').addEventListener("click",()=>{
             let alarmObj={};
-            alarmObj.time=`${SelectDD[0].value}:${SelectDD[1].value} ${SelectDD[2].value}`;
+            alarmObj.time=`${SelectDD[0].value}:${SelectDD[1].value}:${"00"} ${SelectDD[2].value}`;
             alarmObj.index=this.alarmArray.length;
             this.alarmArray.push(alarmObj);
             createAlarm(alarmObj);            
@@ -36,27 +36,18 @@ class Clock{
             }
     const createAlarm=(alarmObj)=>{
             
-            // console.log(alarmArray.length)
-            // for(let i=0;i<alarmArray.length;i++){
-                // let alarmObj=alarmArray[i];
                 let alarmRow = document.createElement("div");
                 alarmRow.classList.add("alarmRow");
                 alarmRow.setAttribute("data-id", alarmObj.index);
                 alarmRow.innerHTML = `<span class="arleft">${alarmObj.time}</span>`;
                 console.log(alarmRow);
               
-                // let alarmRow=
-                // `<div class="alarmRow" data-id="${}"> 
-                // <span class="arleft">${}</span>
-                // </div>`;
-                // <button class="deleteAlarm"><i class="fa fa-trash" aria-hidden="true"></i></button>             
                 let deleteButton = document.createElement("button");
                 deleteButton.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
                 deleteButton.classList.add("deleteAlarm");
                 deleteButton.addEventListener("click", (e) => deleteAlarm(e));
                 alarmRow.appendChild(deleteButton);
                 this.allAlarm.appendChild(alarmRow);
-            // }
             }
         let tim = document.querySelector(this.timeDiv);
         let t= new Date();
@@ -72,9 +63,11 @@ class Clock{
         let t= new Date();
         let time=t.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',second:'2-digit'})
         tim.innerHTML= time;
-
-        if(time==this.alarmTime){
-            this.playAlarm();
+        console.log(this.alarmArray);
+        for(let i=0;i<this.alarmArray.length;i++){
+            if(time==this.alarmArray[i].time){
+                alert("alarm rings");
+            }    
         }
 
     }
